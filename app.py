@@ -9,7 +9,7 @@ app = Flask(__name__, static_folder="static", static_url_path="")
 def validate_name(in_name: str) -> bool:
     return ''.join(in_name.split()).isalpha()
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 @cross_origin()
 def index():
     return render_template("index.html")
