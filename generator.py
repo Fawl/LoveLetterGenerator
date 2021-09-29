@@ -7,10 +7,10 @@ class LoveLetterGenerator():
     '''
     def __init__(self, name: str, rand_seed: int = 0x69, ) -> None:
         seed(rand_seed)
-        self.__name = name
+        self.name = name
 
         config = configparser.ConfigParser()
-        config.read("../config.ini")
+        config.read("config.ini")
 
         self.__wordlists = dict(config["LoveLetterGenerator"])
         del config
@@ -97,7 +97,7 @@ class LoveLetterGenerator():
                 last = "SHORT"
         
         ending_adj = self._generate_unique_word("ADVERBS")
-        signature = f".\n\tYours {ending_adj},\n\t{self.__name}\n"
+        signature = f".\n\tYours {ending_adj},\n\t{self.name}\n"
 
         love_letter = salutation + body + signature
 

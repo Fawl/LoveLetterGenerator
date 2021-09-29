@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+    {% block title %}Love Letter Generator{% endblock %}
+    {% block content %}
+    <h1>Love Letter Generator</h1>
+    <h6 class="text-muted">Inspired by <a href="https://elmcip.net/creative-work/muc-love-letter-generator" target="_blank">Christopher Strachey's Love Machine</a></h6>
+    <br>
+    <figure>
+        <blockquote class="blockquote">
+        <p class="mb-0">'Tis better to have loved and lost than never to have loved at all.</p>
+        
+        </blockquote>
+        <figcaption class="blockquote-footer">
+        Alfred Lord Tennyson in <cite title="Source Title">In Memoriam A.H.H</cite>
+        </figcaption>
+    </figure>
+    <br>
+    <form class="input-group" action="/generate" method="POST">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your name..." required pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$" title="Only letters and spaces, please">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Go!</button>
+        </span>
+    </form><!-- /input-group -->
+    <p class="text-muted"><small>* I take <em>no responsibility</em> for what you do with the love letter.</small></p>
+    {% endblock %}
