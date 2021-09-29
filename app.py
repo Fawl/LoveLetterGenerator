@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_cors import CORS, cross_origin
 from datetime import datetime
 from generator import LoveLetterGenerator
 from hashlib import md5
@@ -9,6 +10,7 @@ def validate_name(in_name: str) -> bool:
     return ''.join(in_name.split()).isalpha()
 
 @app.route("/")
+@cross_origin()
 def index():
     return render_template("index.html")
 
@@ -32,4 +34,5 @@ def get_love_letter():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    cors = CORS(app)
+    app.run()
